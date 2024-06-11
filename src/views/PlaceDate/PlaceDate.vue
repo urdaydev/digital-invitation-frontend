@@ -1,6 +1,6 @@
 <template>
   <section class="banner">
-    <h1 class="banner__title">¿Dónde y Cuándo?</h1>
+    <h1 class="banner__title">{{ $t("place.title") }}</h1>
   </section>
   <DateSection />
   <PlaceSection />

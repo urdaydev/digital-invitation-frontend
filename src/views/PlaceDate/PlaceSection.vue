@@ -7,9 +7,9 @@
         @click="selectMap('ceremony')"
       >
         <i class="fa-solid fa-church"></i>
-        <h2>La ceremonia</h2>
+        <h2>{{ $t("place.ceremony") }}</h2>
         <p>11:30 AM - 01:00 PM</p>
-        <p>Iglesia Señor de Luren</p>
+        <p class="place__location">Iglesia Señor de Luren</p>
         <p>Av Ayacucho 1057, Ica 11001</p>
       </article>
       <article
@@ -18,16 +18,16 @@
         @click="selectMap('reception')"
       >
         <i class="fa-solid fa-champagne-glasses"></i>
-        <h2>La recepción</h2>
+        <h2>{{ $t("place.reception") }}</h2>
         <p>03:00 PM - 05:00 PM</p>
-        <p>Hotel Real Ica</p>
+        <p class="place__location">Hotel Real Ica</p>
         <p>Av de los Maestros 422, Ica 11004</p>
       </article>
     </div>
     <div class="place__map">
       <div v-show="!selectedMap" class="place__select-wrap">
         <i class="fa-solid fa-map-location-dot"></i>
-        <p>Selecciona una dirección para ver la ubicación en el mapa.</p>
+        <p>{{ $t("place.select") }}</p>
       </div>
       <iframe
         v-show="selectedMap === 'ceremony'"
@@ -102,8 +102,14 @@ const selectMap = (map) => {
   color: white;
 }
 
-.place__article.selected i {
+.place__article.selected i,
+.place__article.selected .place__location {
   color: white;
+}
+
+.place__location {
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .place__map {

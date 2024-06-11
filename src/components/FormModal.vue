@@ -6,53 +6,56 @@
           <div v-if="modalActive" class="modal">
             <form @submit.prevent="handleSubmit" class="modal__form">
               <div class="modal__input-wrapper">
-                <label for="name">
+                <label for="fullName">
                   <i class="fa-regular fa-user"></i>
-                  <span>Escribe tu nombre:</span>
+                  <span>{{ $t("form.lblName") }}</span>
                 </label>
                 <input
+                  ref="fullNameInput"
                   v-model="fullName"
                   type="text"
-                  id="name"
-                  placeholder="Nombre"
-                  required
+                  maxlength="50"
+                  id="fullName"
+                  placeholder=". . ."
                 />
               </div>
               <div class="modal__input-wrapper">
                 <label for="message">
                   <i class="fa-regular fa-user"></i>
-                  <span>Escribe tu mensaje:</span>
+                  <span>{{ $t("form.lblMessage") }}</span>
                 </label>
                 <textarea
                   v-model="message"
                   id="message"
-                  placeholder="Tu mensaje"
+                  maxlength="100"
+                  placeholder=". . ."
                 />
               </div>
               <div class="modal__input-wrapper">
                 <label for="email">
                   <i class="fa-regular fa-envelope"></i>
-                  <span>Escribe tu email:</span>
+                  <span>{{ $t("form.lblEmail") }}</span>
                 </label>
                 <input
                   v-model="email"
                   type="email"
                   id="email"
-                  placeholder="Email"
-                  required
+                  maxlength="50"
+                  placeholder=". . ."
                 />
               </div>
               <div class="modal__input-wrapper">
-                <label for="phone">
+                <label for="phoneNumber">
                   <i class="fa-solid fa-mobile-screen"></i>
-                  <span>Escribe tu teléfono:</span>
+                  <span>{{ $t("form.lblPhone") }}</span>
                 </label>
                 <input
                   v-model="phoneNumber"
                   type="text"
-                  id="phone"
-                  placeholder="Teléfono"
-                  required
+                  inputmode="tel"
+                  id="phoneNumber"
+                  maxlength="12"
+                  placeholder=". . ."
                 />
               </div>
               <div class="modal__button-wrapper">
@@ -61,9 +64,11 @@
                   @click="$emit('close-modal')"
                   class="modal__close"
                 >
-                  Cancelar
+                  {{ $t("form.cancel") }}
                 </button>
-                <button type="submit" class="modal__submit">Confirmar</button>
+                <button type="submit" class="modal__submit">
+                  {{ $t("form.submit") }}
+                </button>
               </div>
             </form>
           </div>
@@ -71,56 +76,86 @@
       </div>
     </Transition>
     <Transition name="toast">
-      <ToastNotification v-if="errorMessage" />
+      <ToastNotification
+        v-if="toast"
+        :type="toast.type"
+        :message="toast.message"
+      />
     </Transition>
   </Teleport>
 </template>
 
-<script setup>
+<script>
 import axios from "axios";
-import { defineEmits, ref } from "vue";
 import ToastNotification from "./ToastNotification.vue";
 
-defineEmits(["close-modal"]);
-defineProps({
-  modalActive: {
-    type: Boolean,
-    required: true,
+export default {
+  components: {
+    ToastNotification,
   },
-});
-
-const fullName = ref("");
-const message = ref("");
-const email = ref("");
-const phoneNumber = ref("");
-const errorMessage = ref(false);
-
-const handleSubmit = async () => {
-  try {
-    const response = await axios.post("https://partylistpro.com/api/guests", {
-      fullName: fullName.value,
-      message: message.value,
-      email: email.value,
-      phoneNumber: phoneNumber.value,
-    });
-
-    console.log("Guest saved!:", response.data);
-    resetForm();
-  } catch (error) {
-    if (error.response && error.response.status === 409) {
-      errorMessage.value = true;
-      setTimeout(() => (errorMessage.value = false), 3000);
-    } else {
-      console.log(error);
-    }
-  }
-};
-
-const resetForm = () => {
-  fullName.value = "";
-  message.value = "";
-  email.value = "";
-  phoneNumber.value = "";
+  props: {
+    modalActive: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      fullName: "",
+      message: "",
+      email: "",
+      phoneNumber: "",
+      toast: null,
+    };
+  },
+  watch: {
+    modalActive(val) {
+      if (val) {
+        this.$nextTick(() => this.$refs.fullNameInput.focus());
+      }
+    },
+  },
+  methods: {
+    async handleSubmit() {
+      if (!this.fullName || !this.email || !this.phoneNumber) {
+        this.showToast("error", "Por favor, llena los campos necesarios.");
+        return;
+      }
+      try {
+        const response = await axios.post(`${this.api}`, {
+          fullName: this.fullName,
+          message: this.message,
+          email: this.email,
+          phoneNumber: this.phoneNumber,
+        });
+        console.log("Guest saved!:", response.data);
+        this.resetForm();
+        this.showToast("success", "¡Gracias por confirmar tu asistencia!");
+        this.$emit("close-modal");
+      } catch (error) {
+        console.log(error.response.data);
+        if (error.response && error.response.status === 409) {
+          this.showToast("error", "Ya has confirmado tu asistencia.");
+        } else {
+          console.log(error);
+        }
+      }
+    },
+    resetForm() {
+      this.fullName = "";
+      this.message = "";
+      this.email = "";
+      this.phoneNumber = "";
+    },
+    showToast(type, message) {
+      this.toast = {
+        type: type,
+        message: message,
+      };
+      setTimeout(() => (this.toast = null), 2000);
+    },
+  },
+  emits: ["close-modal"],
 };
 </script>
 
@@ -128,7 +163,7 @@ const resetForm = () => {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 3;
+  z-index: 5;
   background-color: rgba(0, 0, 0, 0.3);
   display: grid;
   place-content: center;
@@ -180,16 +215,14 @@ const resetForm = () => {
   resize: none;
 }
 
-.modal__form textarea:hover {
-  border-color: var(--primary-color);
-}
-
 .modal__form textarea::placeholder {
   font-family: "Lato", sans-serif;
 }
 
 .modal__form input:hover,
-.modal__form input:focus {
+.modal__form input:focus,
+.modal__form textarea:hover,
+.modal__form textarea:focus {
   border-color: var(--primary-color);
 }
 
@@ -209,7 +242,8 @@ const resetForm = () => {
   transition: outline-color 0.2s ease;
 }
 
-.modal__submit:hover {
+.modal__submit:hover,
+.modal__submit:focus {
   outline-color: white;
 }
 
@@ -217,11 +251,13 @@ const resetForm = () => {
   padding: 12px;
   background-color: white;
   border: 1px solid var(--primary-color);
+  outline: 0;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.modal__close:hover {
+.modal__close:hover,
+.modal__close:focus {
   background-color: var(--primary-color);
   color: white;
 }

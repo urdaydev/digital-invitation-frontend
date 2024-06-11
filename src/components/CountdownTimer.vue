@@ -2,19 +2,19 @@
   <div class="countdown">
     <div class="countdown__item">
       <p class="countdown__value">{{ days }}</p>
-      <p>Días</p>
+      <p v-html="$t('hero.days')"></p>
     </div>
     <div class="countdown__item">
       <p class="countdown__value">{{ hours }}</p>
-      <p>Horas</p>
+      <p v-html="$t('hero.hours')"></p>
     </div>
     <div class="countdown__item">
       <p class="countdown__value">{{ minutes }}</p>
-      <p>Minutos</p>
+      <p v-html="$t('hero.minutes')"></p>
     </div>
     <div class="countdown__item">
       <p class="countdown__value">{{ seconds }}</p>
-      <p>Segundos</p>
+      <p v-html="$t('hero.seconds')"></p>
     </div>
   </div>
 </template>
@@ -67,6 +67,8 @@ onUnmounted(() => {
   display: grid;
   grid-template-columns: repeat(4, auto);
   justify-content: center;
+  opacity: 0;
+  animation: slideInFromTop 1s forwards 0.4s;
 }
 
 .countdown__item {
@@ -103,10 +105,6 @@ onUnmounted(() => {
 
   .countdown__item:not(:last-child)::after {
     display: none;
-  }
-
-  .countdown__value {
-    font-size: 2.5rem;
   }
 }
 </style>

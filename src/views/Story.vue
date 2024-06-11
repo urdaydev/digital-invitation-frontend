@@ -1,7 +1,7 @@
 <template>
   <section class="banner">
     <main class="banner__container">
-      <h1 class="banner__title">Nuestra historia</h1>
+      <h1 class="banner__title">{{ $t("story.title") }}</h1>
       <div class="banner__video">
         <iframe
           src="https://www.youtube.com/embed/yvgMclz88Pw"
@@ -34,22 +34,22 @@
 }
 
 .banner__container {
-  position: fixed;
+  position: absolute;
 }
 
 .banner__title {
   font-family: "Playfair Display", sans-serif;
   font-size: 2rem;
-  margin-top: 32px;
+  margin-top: 50px;
   margin-bottom: 16px;
   text-align: center;
   color: white;
 }
 
 .banner__video {
-  width: 1200px;
-  border-bottom: 1px solid white;
-  padding-bottom: 4px;
+  width: 800px;
+  background: white;
+  padding: 1px;
 }
 
 .banner__video iframe {

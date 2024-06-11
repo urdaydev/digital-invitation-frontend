@@ -3,10 +3,12 @@
     <nav>
       <ul v-show="!mobile">
         <li>
-          <RouterLink :to="{ name: 'story' }">HISTORIA</RouterLink>
+          <RouterLink :to="{ name: 'story' }">{{ $t("nav.story") }}</RouterLink>
         </li>
         <li>
-          <RouterLink :to="{ name: 'placeAndDate' }">LUGAR Y FECHA</RouterLink>
+          <RouterLink :to="{ name: 'placeAndDate' }">{{
+            $t("nav.place")
+          }}</RouterLink>
         </li>
         <li>
           <RouterLink id="nav__names" :to="{ name: 'home' }">
@@ -14,11 +16,13 @@
           </RouterLink>
         </li>
         <li>
-          <RouterLink :to="{ name: 'gallery' }">GALERÍA</RouterLink>
+          <RouterLink :to="{ name: 'gallery' }">{{
+            $t("nav.gallery")
+          }}</RouterLink>
         </li>
         <li>
           <RouterLink :to="{ name: 'confirmAssistance' }" class="nav__confirm">
-            Confirmar Asistencia
+            {{ $t("nav.confirm") }}
           </RouterLink>
         </li>
       </ul>
@@ -34,19 +38,19 @@
           <li>
             <RouterLink :to="{ name: 'story' }">
               <i class="fa-solid fa-heart"></i>
-              <span>HISTORIA</span>
+              <span>{{ $t("nav.story") }}</span>
             </RouterLink>
           </li>
           <li>
             <RouterLink :to="{ name: 'placeAndDate' }">
               <i class="fa-solid fa-location-dot"></i>
-              <span>LUGAR Y FECHA</span>
+              <span>{{ $t("nav.place") }}</span>
             </RouterLink>
           </li>
           <li>
             <RouterLink :to="{ name: 'gallery' }">
               <i class="fa-solid fa-images"></i>
-              <span>GALERÍA</span>
+              <span>{{ $t("nav.gallery") }}</span>
             </RouterLink>
           </li>
           <li>
@@ -55,12 +59,12 @@
               id="dropdown-nav__confirm"
             >
               <i class="fa-solid fa-hand"></i>
-              <span>Confirmar Asistencia</span>
+              <span>{{ $t("nav.confirm") }}</span>
             </RouterLink>
           </li>
           <div class="mobile__github">
             <a
-              href="https://github.com/diegourday/digital-invitation-frontend"
+              href="https://github.com/diegourday/digital-invitation-frontend/tree/master"
               target="_blank"
             >
               <i class="fa-brands fa-github"></i>

@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "story": "STORY",
+    "place": "LOCATION AND DATE",
+    "gallery": "GALLERY",
+    "confirm": "Confirm Assistance"
+  },
+  "hero": {
+    "title": "We invite you <br /> to our wedding",
+    "subtitle": "Coming soon",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "story": {
+    "title": "Our story"
+  },
+  "place": {
+    "title": "Where and When?",
+    "subtitle": "A day to remember",
+    "date": "July 20th, 2024",
+    "text1": "Join us on this special day to share laughter, tears, and unforgettable moments. Celebrate love and joy in the company of family and friends, as two hearts unite in a new adventure.",
+    "text2": "We look forward to seeing you there to celebrate this wonderful occasion together!",
+    "text3": "Add the wedding day to your Google calendar!",
+    "add": "Add",
+    "ceremony": "The ceremony",
+    "reception": "The reception",
+    "select": "Select an address to view the location on the map."
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "confirm": {
+    "title": "Confirm your attendance",
+    "op1": "Right here",
+    "op2": "Whatsapp",
+    "op3": "Email",
+    "msg": "Please confirm your attendance one month in advance.",
+    "ty": "Thank you!",
+    "see": "See confirmed guests"
+  },
+  "form": {
+    "lblName": "Enter your name:",
+    "lblMessage": "Enter your message:",
+    "lblEmail": "Enter your email:",
+    "lblPhone": "Enter your phone number:",
+    "cancel": "Cancel",
+    "submit": "Confirm"
+  },
+  "confirmGuests": {
+    "title": "Confirmed Guests"
+  },
+  "itinerary": {
+    "title": "Itinerary",
+    "subtitle": "We are excited to share with you the details of our special day. Below, we present the itinerary so you don't miss any significant moments of this long-awaited celebration.",
+    "lbl1": "Ceremony",
+    "lbl2": "Reception",
+    "lbl3": "Dinner",
+    "lbl4": "Dance",
+    "text1": "Share this moment with us.",
+    "text2": "Enjoy drinks and appetizers with us.",
+    "text3": "Join us for a delicious dinner.",
+    "text4": "End the night dancing and celebrating with us."
+  },
+  "en": "English",
+  "es": "Spanish",
+  "footer": {
+    "dev": "Developed by",
+    "to": "to"
+  }
+}

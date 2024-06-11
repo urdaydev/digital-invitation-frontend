@@ -1,6 +1,6 @@
 <template>
   <section class="banner">
-    <h1 class="banner__title">Invitados Confirmados</h1>
+    <h1 class="banner__title">{{ $t("confirmGuests.title") }}</h1>
   </section>
   <main class="guests">
     <i class="fa-solid fa-users"></i>
@@ -13,20 +13,26 @@
   </main>
 </template>
 
-<script setup>
+<script>
+/* Options Api used because of it's using the global variable "api" */
 import axios from "axios";
-import { onMounted, ref } from "vue";
 
-const guests = ref([]);
-
-const getGuests = async () => {
-  const response = await axios.get("https://partylistpro.com/api/guests");
-  guests.value = response.data;
+export default {
+  data() {
+    return {
+      guests: [],
+    };
+  },
+  methods: {
+    async getGuests() {
+      const response = await axios.get(`${this.api}`);
+      this.guests = response.data;
+    },
+  },
+  mounted() {
+    this.getGuests();
+  },
 };
-
-onMounted(async () => {
-  getGuests();
-});
 </script>
 
 <style scoped>
@@ -58,6 +64,7 @@ onMounted(async () => {
 .guests {
   display: grid;
   max-width: var(--container);
+  min-height: 650px;
   margin: 0 auto;
   padding: 100px 20px;
   justify-content: center;
@@ -81,6 +88,15 @@ onMounted(async () => {
   border: 1px solid var(--primary-color);
   padding: 16px 20px;
   background-color: white;
+}
+
+.guest:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.guest:hover i {
+  color: white;
 }
 
 .guest {

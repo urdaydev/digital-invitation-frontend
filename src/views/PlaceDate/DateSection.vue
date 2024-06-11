@@ -1,26 +1,23 @@
 <template>
   <section class="date">
     <div>
-      <h2 class="date__title">Un día para recordar</h2>
-      <p class="date__date">- 20 de Julio del 2024 -</p>
+      <h2 class="date__title">{{ $t("place.subtitle") }}</h2>
+      <p class="date__date">- {{ $t("place.date") }} -</p>
       <p class="date__description">
-        Únete a nosotros en este día especial para compartir risas, lágrimas y
-        momentos inolvidales. Celebra el amor y la alegría en compañía de
-        familiares y amigos, mientras dos corazones se unen en una nueva
-        aventura.
+        {{ $t("place.text1") }}
       </p>
       <p class="date__hope">
-        ¡Esperamos verte allí para celebrar juntos esta maravillosa ocasión!
+        {{ $t("place.text2") }}
       </p>
     </div>
     <div class="date__calendar">
       <i class="fa-regular fa-calendar-days"></i>
-      <p>¡Agrega el día de la boda a tu calendario de Google!</p>
+      <p>{{ $t("place.text3") }}</p>
       <a
         class="date__button"
         href="https://calendar.app.google/gZvjn84nJYd4imha9"
         target="_blank"
-        >Agregar</a
+        >{{ $t("place.add") }}</a
       >
     </div>
   </section>

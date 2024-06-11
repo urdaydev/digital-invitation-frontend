@@ -1,6 +1,6 @@
 <template>
   <section class="banner">
-    <h1 class="banner__title">Galería</h1>
+    <h1 class="banner__title">{{ $t("gallery.title") }}</h1>
   </section>
   <main class="gallery">
     <GalleryCard v-for="image in images" :key="image.id" :image="image" />

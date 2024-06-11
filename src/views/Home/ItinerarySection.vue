@@ -1,20 +1,19 @@
 <template>
   <section class="itinerary">
     <div class="itinerary__container">
-      <h2 class="itinerary__title">Itinerario</h2>
+      <h2 class="itinerary__title">{{ $t("itinerary.title") }}</h2>
       <p class="itinerary__description">
-        Estamos emocionados de compartir con ustedes los detalles de nuestro día
-        especial. A continuación, les presentamos el itinerario para que no se
-        pierdan ningún momento significativo de esta celebración tan esperada.
+        {{ $t("itinerary.subtitle") }}
       </p>
       <div class="itinerary__article-wrapper">
         <article class="itinerary__article">
           <span>11:30 AM - 01:00 PM</span>
           <div class="itinerary__text">
             <h3>
-              <i class="fa-solid fa-church"></i><strong>Ceremonia</strong>
+              <i class="fa-solid fa-church"></i
+              ><strong>{{ $t("itinerary.lbl1") }}</strong>
             </h3>
-            <p>Comparte con nosotros este momento</p>
+            <p>{{ $t("itinerary.text1") }}</p>
           </div>
         </article>
 
@@ -22,25 +21,32 @@
           <span>01:30 PM - 03:00 PM</span>
           <div class="itinerary__text">
             <h3>
-              <i class="fa-solid fa-cocktail"></i><strong>Recepción</strong>
+              <i class="fa-solid fa-cocktail"></i
+              ><strong>{{ $t("itinerary.lbl2") }}</strong>
             </h3>
-            <p>Disfruta de bebidas y aperitivos con nosotros</p>
+            <p>{{ $t("itinerary.text2") }}</p>
           </div>
         </article>
 
         <article class="itinerary__article">
           <span>03:30 PM - 05:30 PM</span>
           <div class="itinerary__text">
-            <h3><i class="fa-solid fa-utensils"></i><strong>Cena</strong></h3>
-            <p>Únete a nosotros para una deliciosa cena</p>
+            <h3>
+              <i class="fa-solid fa-utensils"></i
+              ><strong>{{ $t("itinerary.lbl3") }}</strong>
+            </h3>
+            <p>{{ $t("itinerary.text3") }}</p>
           </div>
         </article>
 
         <article class="itinerary__article">
           <span>06:00 PM - 09:00 PM</span>
           <div class="itinerary__text">
-            <h3><i class="fa-solid fa-music"></i><strong>Baile</strong></h3>
-            <p>Termina la noche bailando y celebrando con nosotros</p>
+            <h3>
+              <i class="fa-solid fa-music"></i
+              ><strong>{{ $t("itinerary.lbl4") }}</strong>
+            </h3>
+            <p>{{ $t("itinerary.text4") }}</p>
           </div>
         </article>
       </div>
@@ -62,7 +68,7 @@
   font-family: "Playfair Display", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 10px;
-
+  color: var(--primary-color);
   text-align: center;
 }
 

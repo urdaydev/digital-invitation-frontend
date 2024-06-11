@@ -1,11 +1,8 @@
 <template>
   <section class="hero">
     <div class="hero__container">
-      <h1 class="hero__title">
-        Te invitamos <br />
-        a nuestra boda
-      </h1>
-      <p class="hero__text">Muy pronto</p>
+      <h1 class="hero__title" v-html="$t('hero.title')"></h1>
+      <p class="hero__text">{{ $t("hero.subtitle") }}</p>
       <CountdownTimer />
     </div>
   </section>
@@ -45,6 +42,8 @@ import CountdownTimer from "./CountdownTimer.vue";
   font-size: 5.2rem;
   line-height: 6rem;
   margin-bottom: 50px;
+  opacity: 0;
+  animation: slideInFromTop 1s forwards;
 }
 
 .hero__text {
@@ -52,12 +51,15 @@ import CountdownTimer from "./CountdownTimer.vue";
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 12px;
+  opacity: 0;
+  animation: slideInFromTop 1s forwards 0.2s;
 }
 
 @media screen and (max-width: 768px) {
   .hero__container {
     width: 100%;
     padding: 0 20px;
+    margin-top: 0;
   }
 
   .hero__title {

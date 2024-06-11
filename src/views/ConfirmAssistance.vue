@@ -1,11 +1,11 @@
 <template>
   <section class="banner">
     <main class="banner__container">
-      <h1 class="banner__title">Confirma tu asistencia</h1>
+      <h1 class="banner__title">{{ $t("confirm.title") }}</h1>
       <div class="banner__options-wrapper">
         <button @click="toggleModal" class="banner__option">
           <i class="fa-solid fa-pen-nib"></i>
-          <span>Aquí mismo</span>
+          <span>{{ $t("confirm.op1") }}</span>
         </button>
         <a
           href="https://wa.me/51938318881?text=¡Hola! Asistiré a tu boda. Muchas gracias por la invitación. 💛🤗"
@@ -13,24 +13,25 @@
           class="banner__option"
         >
           <i class="fa-brands fa-whatsapp"></i>
-          <span>Whatsapp</span>
+          <span>{{ $t("confirm.op2") }}</span>
         </a>
         <a
           href="mailto:diegourday@outlook.com.pe?subject=Confirmación de mi Asistencia a la boda.&body=¡Hola! Asistiré a tu boda. Muchas gracias por la invitación. 💛🤗"
           class="banner__option"
         >
           <i class="fa-regular fa-envelope"></i>
-          <span>Email</span>
+          <span>{{ $t("confirm.op3") }}</span>
         </a>
       </div>
       <div class="banner__message">
-        <p>Por favor, confirma tu asistencia un mes antes.</p>
+        <p>{{ $t("confirm.msg") }}</p>
         <p>
-          <span>¡Gracias!</span><br />
+          <span>{{ $t("confirm.ty") }}</span
+          ><br />
           <i class="fa-solid fa-heart"></i>
         </p>
-        <RouterLink :to="{ name: 'confirmedGuests' }">
-          <p class="banner__info">Ver invitados confirmados</p>
+        <RouterLink :to="{ name: 'confirmedGuests' }" class="banner__info">
+          {{ $t("confirm.see") }}
         </RouterLink>
       </div>
     </main>
@@ -142,6 +143,10 @@ i {
 
 .banner__info {
   color: var(--primary-color);
+  text-decoration: none;
+}
+
+.banner__info:hover {
   text-decoration: underline;
 }
 

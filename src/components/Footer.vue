@@ -1,16 +1,17 @@
 <template>
   <footer>
+    <LanguageSwitcher />
     <p>
-      &copy; Desarrollado por
+      &copy; {{ $t("footer.dev") }}
       <a :href="DiegoCV" target="_blank">Diego Urday</a>
-      para
+      {{ $t("footer.to") }}
       <a href="https://rumba77.com" target="_blank">Rumba77</a>
       &nbsp;|&nbsp;
       <i class="fa-regular fa-heart"></i>
     </p>
     <div class="footer__github">
       <a
-        href="https://github.com/diegourday/digital-invitation-frontend"
+        href="https://github.com/diegourday/digital-invitation-frontend/tree/master"
         target="_blank"
       >
         <i class="fa-brands fa-github"></i>
@@ -26,6 +27,7 @@
 </template>
 
 <script setup>
+import LanguageSwitcher from "./LanguageSwitcher.vue";
 import DiegoCV from "../assets/pdf/diegourday-cv.pdf";
 </script>
 

@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "story": "HISTORIA",
+    "place": "LUGAR Y FECHA",
+    "gallery": "GALERÍA",
+    "confirm": "Confirmar Asistencia"
+  },
+  "hero": {
+    "title": "Te invitamos <br /> a nuestra boda",
+    "subtitle": "Muy pronto",
+    "days": "Días",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "seconds": "Segundos"
+  },
+  "story": {
+    "title": "Nuestra historia"
+  },
+  "place": {
+    "title": "¿Dónde y Cuándo?",
+    "subtitle": "Un día para recordar",
+    "date": "20 de Julio del 2024",
+    "text1": "Únete a nosotros en este día especial para compartir risas, lágrimas y momentos inolvidales. Celebra el amor y la alegría en compañía de familiares y amigos, mientras dos corazones se unen en una nueva aventura.",
+    "text2": "¡Esperamos verte allí para celebrar juntos esta maravillosa ocasión!",
+    "text3": "¡Agrega el día de la boda a tu calendario de Google!",
+    "add": "Agregar",
+    "ceremony": "La ceremonia",
+    "reception": "La recepción",
+    "select": "Selecciona una dirección para ver la ubicación en el mapa."
+  },
+  "gallery": {
+    "title": "Galería"
+  },
+  "confirm": {
+    "title": "Confirma tu asistencia",
+    "op1": "Aquí mismo",
+    "op2": "Whatsapp",
+    "op3": "Email",
+    "msg": "Por favor, confirma tu asistencia un mes antes.",
+    "ty": "¡Gracias!",
+    "see": "Ver invitados confirmados"
+  },
+  "form": {
+    "lblName": "Escribe tu nombre:",
+    "lblMessage": "Escribe tu mensaje:",
+    "lblEmail": "Escribe tu email:",
+    "lblPhone": "Escribe tu teléfono:",
+    "cancel": "Cancelar",
+    "submit": "Confirmar"
+  },
+  "confirmGuests": {
+    "title": "Invitados Confirmados"
+  },
+  "itinerary": {
+    "title": "Itinerario",
+    "subtitle": "Estamos emocionados de compartir con ustedes los detalles de nuestro día especial. A continuación, les presentamos el itinerario para que no se pierdan ningún momento significativo de esta celebración tan esperada.",
+    "lbl1": "Ceremonia",
+    "lbl2": "Recepción",
+    "lbl3": "Cena",
+    "lbl4": "Baile",
+    "text1": "Comparte con nosotros este momento.",
+    "text2": "Disfruta de bebidas y aperitivos con nosotros.",
+    "text3": "Únete a nosotros para una deliciosa cena.",
+    "text4": "Termina la noche bailando y celebrando con nosotros."
+  },
+  "en": "Inglés",
+  "es": "Español",
+  "footer": {
+    "dev": "Desarrollado por",
+    "to": "para"
+  }
+}

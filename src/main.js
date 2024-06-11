@@ -1,11 +1,14 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import i18n from "./i18n";
 
-const app = createApp(App)
+const app = i18n(createApp(App));
 
-app.use(router)
+app.use(router);
 
-app.mount('#app')
+app.config.globalProperties.api = "https://partylistpro.com/api/guests";
+
+app.mount("#app");

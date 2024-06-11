@@ -13,6 +13,10 @@
               <button @click="previousImage" class="modal__previous">
                 <i class="fa-solid fa-chevron-left"></i>
               </button>
+              <button @click="togglePlayPause">
+                <i v-if="isPlaying" class="fa-regular fa-circle-pause"></i>
+                <i v-else class="fa-regular fa-circle-play"></i>
+              </button>
               <button @click="nextImage" class="modal__next">
                 <i class="fa-solid fa-chevron-right"></i>
               </button>
@@ -28,7 +32,9 @@
 </template>
 
 <script setup>
-import { defineEmits, ref } from "vue";
+import { onUnmounted, ref, watch } from "vue";
+import { Howl } from "howler";
+import song from "../assets/music/song.mp3";
 
 defineEmits(["close-modal"]);
 const props = defineProps({
@@ -42,6 +48,47 @@ const props = defineProps({
   },
 });
 
+/* Music Player */
+const music = ref(null);
+let isPlaying = ref(false);
+
+const createMusic = () => {
+  if (!music.value) {
+    music.value = new Howl({
+      src: song,
+      volume: 0.0,
+      onplay: () => {
+        music.value.fade(0.0, 1.0, 500);
+      },
+    });
+  }
+};
+
+const togglePlayPause = () => {
+  createMusic();
+  isPlaying.value = !isPlaying.value;
+  if (isPlaying.value) {
+    music.value.play();
+  } else {
+    music.value.pause();
+  }
+};
+
+watch(
+  () => props.modalActive,
+  (val) => {
+    if (!val && music.value) {
+      music.value.fade(1.0, 0.0, 500);
+      music.value.once("fade", () => {
+        music.value.stop();
+        music.value = null;
+        isPlaying.value = false;
+      });
+    }
+  }
+);
+
+/* Gallery Function */
 let imageIndex = ref(0);
 
 const fadeImage = (callback) => {
@@ -77,7 +124,7 @@ const nextImage = () => {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 3;
+  z-index: 5;
   background-color: rgba(0, 0, 0, 0.7);
   display: grid;
   place-content: center;
@@ -95,7 +142,7 @@ const nextImage = () => {
   height: 100%;
   outline: 1px solid white;
   outline-offset: -5px;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.4s ease;
   opacity: 1;
 }
 
@@ -120,15 +167,15 @@ const nextImage = () => {
   cursor: pointer;
   color: white;
   font-size: 1.8rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.5s ease;
 }
 
-.modal__previous:hover {
-  transform: translateX(-4px);
+.modal__previous:active {
+  transform: translateX(-8px);
 }
 
-.modal__next:hover {
-  transform: translateX(4px);
+.modal__next:active {
+  transform: translateX(8px);
 }
 
 .modal__close {
