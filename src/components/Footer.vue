@@ -61,7 +61,8 @@ footer a i:hover {
 .footer__github {
   position: absolute;
   right: 16px;
-  bottom: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   gap: 10px;
   font-size: 1.4rem;

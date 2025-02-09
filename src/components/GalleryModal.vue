@@ -58,7 +58,7 @@ const createMusic = () => {
       src: song,
       volume: 0.0,
       onplay: () => {
-        music.value.fade(0.0, 1.0, 500);
+        music.value.fade(0.0, 0.5, 500);
       },
     });
   }
@@ -78,7 +78,7 @@ watch(
   () => props.modalActive,
   (val) => {
     if (!val && music.value) {
-      music.value.fade(1.0, 0.0, 500);
+      music.value.fade(0.5, 0.0, 500);
       music.value.once("fade", () => {
         music.value.stop();
         music.value = null;

@@ -59,6 +59,6 @@ const closeModal = () => {
 }
 
 .gallery-card:hover .gallery-card__image {
-  transform: scale(1.1) rotate(-2deg);
+  transform: scale(1.1);
 }
 </style>

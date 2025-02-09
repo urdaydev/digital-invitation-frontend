@@ -113,6 +113,7 @@ const toggleModal = () => {
 
 span,
 i {
+  font-size: 1rem;
   transition: color 0.2s ease;
 }
 

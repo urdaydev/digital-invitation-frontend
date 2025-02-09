@@ -16,7 +16,6 @@
                   type="text"
                   maxlength="50"
                   id="fullName"
-                  placeholder=". . ."
                 />
               </div>
               <div class="modal__input-wrapper">
@@ -24,25 +23,14 @@
                   <i class="fa-regular fa-user"></i>
                   <span>{{ $t("form.lblMessage") }}</span>
                 </label>
-                <textarea
-                  v-model="message"
-                  id="message"
-                  maxlength="100"
-                  placeholder=". . ."
-                />
+                <textarea v-model="message" id="message" maxlength="100" />
               </div>
               <div class="modal__input-wrapper">
                 <label for="email">
                   <i class="fa-regular fa-envelope"></i>
                   <span>{{ $t("form.lblEmail") }}</span>
                 </label>
-                <input
-                  v-model="email"
-                  type="email"
-                  id="email"
-                  maxlength="50"
-                  placeholder=". . ."
-                />
+                <input v-model="email" type="email" id="email" maxlength="50" />
               </div>
               <div class="modal__input-wrapper">
                 <label for="phoneNumber">
@@ -55,7 +43,6 @@
                   inputmode="tel"
                   id="phoneNumber"
                   maxlength="12"
-                  placeholder=". . ."
                 />
               </div>
               <div class="modal__button-wrapper">

@@ -1,14 +1,16 @@
 <template>
   <section class="itinerary">
     <div class="itinerary__container">
-      <h2 class="itinerary__title">{{ $t("itinerary.title") }}</h2>
+      <h2 class="itinerary__title">
+        {{ $t("itinerary.title") }}
+      </h2>
       <p class="itinerary__description">
         {{ $t("itinerary.subtitle") }}
       </p>
       <div class="itinerary__article-wrapper">
         <article class="itinerary__article">
-          <span>11:30 AM - 01:00 PM</span>
-          <div class="itinerary__text">
+          <span v-motion-roll-visible-left>11:30 AM - 01:00 PM</span>
+          <div class="itinerary__text" v-motion-slide-visible-bottom>
             <h3>
               <i class="fa-solid fa-church"></i
               ><strong>{{ $t("itinerary.lbl1") }}</strong>
@@ -18,8 +20,8 @@
         </article>
 
         <article class="itinerary__article">
-          <span>01:30 PM - 03:00 PM</span>
-          <div class="itinerary__text">
+          <span v-motion-roll-visible-left>01:30 PM - 03:00 PM</span>
+          <div class="itinerary__text" v-motion-slide-visible-bottom>
             <h3>
               <i class="fa-solid fa-cocktail"></i
               ><strong>{{ $t("itinerary.lbl2") }}</strong>
@@ -29,8 +31,8 @@
         </article>
 
         <article class="itinerary__article">
-          <span>03:30 PM - 05:30 PM</span>
-          <div class="itinerary__text">
+          <span v-motion-roll-visible-left>03:30 PM - 05:30 PM</span>
+          <div class="itinerary__text" v-motion-slide-visible-bottom>
             <h3>
               <i class="fa-solid fa-utensils"></i
               ><strong>{{ $t("itinerary.lbl3") }}</strong>
@@ -40,8 +42,8 @@
         </article>
 
         <article class="itinerary__article">
-          <span>06:00 PM - 09:00 PM</span>
-          <div class="itinerary__text">
+          <span v-motion-roll-visible-left>06:00 PM - 09:00 PM</span>
+          <div class="itinerary__text" v-motion-slide-visible-bottom>
             <h3>
               <i class="fa-solid fa-music"></i
               ><strong>{{ $t("itinerary.lbl4") }}</strong>

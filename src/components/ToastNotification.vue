@@ -46,7 +46,7 @@ const toastIcon = computed(() => toastIcons[props.type] || toastIcons.default);
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 4;
+  z-index: 6;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   width: 400px;

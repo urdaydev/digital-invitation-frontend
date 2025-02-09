@@ -55,7 +55,7 @@ import CountdownTimer from "./CountdownTimer.vue";
   animation: slideInFromTop 1s forwards 0.2s;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .hero__container {
     width: 100%;
     padding: 0 20px;
